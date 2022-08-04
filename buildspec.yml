@@ -1,6 +1,23 @@
 # Do not change version. This is the version of aws buildspec, not the version of your buldspec file.
 version: 0.2
-
+Parameters:
+    DASTTool:
+      Description: Select the DAST tool from the list
+      Type: String
+      AllowedValues: [OWASP-Zap]
+    OwaspZapURLName:
+      Description: OWASP Zap DAST Tool URL
+      Type: String
+      Default: http://44.202.166.177
+    ApplicationURLForDASTScan:
+      Description: Application URL to run the DAST/Pen testing 
+      Type: String
+      Default: https://ec2-44-202-166-177.compute-1.amazonaws.com.
+    OwaspZapApiKey:
+      Description: OWASP Zap ApiKey
+      Type: String
+      NoEcho: true
+      Default: zapapikey
 phases:
   install:
     runtime-versions:
@@ -27,4 +44,4 @@ phases:
 # ExpressJS apps will need other artifact directories included (bin/*, public/*, routes/*, views/* etc).
 artifacts:
   files:
-    - app.js
+    -app.js 
