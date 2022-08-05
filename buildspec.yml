@@ -14,7 +14,7 @@ env:
       Description: OWASP Zap ApiKey
       Type: String
       NoEcho: 
-      Default: zapapikey
+      Default: 7e0ba806hu1r1ojr699v
 phases:
   install:
     runtime-versions:
