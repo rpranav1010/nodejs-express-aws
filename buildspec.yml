@@ -2,10 +2,6 @@
 version: 0.2
 env:
   Variables:
-    DASTTool:
-      Description: Select the DAST tool from the list
-      Type: String
-      AllowedValues: [OWASP-Zap]
     OwaspZapURLName:
       Description: OWASP Zap DAST Tool URL
       Type: String
