@@ -1,24 +1,5 @@
 # Do not change version. This is the version of aws buildspec, not the version of your buldspec file.
 version: 0.2
-<<<<<<< HEAD
-
-=======
-env:
-  Variables:
-    OwaspZapURLName:
-      Description: OWASP Zap DAST Tool URL
-      Type: String
-      Default: http://44.202.166.177
-    ApplicationURLForDASTScan:
-      Description: Application URL to run the DAST/Pen testing 
-      Type: String
-      Default: https://ec2-44-202-166-177.compute-1.amazonaws.com.
-    OwaspZapApiKey:
-      Description: OWASP Zap ApiKey
-      Type: String
-      NoEcho: 
-      Default: 7e0ba806hu1r1ojr699v
->>>>>>> eb02ef6363f66a1f7110c9e636d33cac92d53388
 phases:
   install:
     runtime-versions:
@@ -41,7 +22,7 @@ phases:
       - sudo ./ZAP_2_11_1_unix.sh
       -zap.sh -daemon -quickurl https://demo.testfire.net/index.jsp -quickout /tmp/myresults.xml -quickprogress
 
-        post_build:
+  post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
