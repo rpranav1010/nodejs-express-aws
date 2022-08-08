@@ -17,9 +17,21 @@ phases:
       - sudo apt-get update && sudo apt-get upgrade
       - sudo apt-get install openjdk-11-jdk
       - sudo apt-get install wget
-      - wget https://github.com/zaproxy/zaproxy/releases/download/v2.11.1/ZAP_2_11_1_unix.sh
       - cd Downloads/
+      - mkdir ZAP
+      - cd ZAP
+      - wget https://github.com/zaproxy/zaproxy/releases/download/v2.11.1/ZAP_2_11_1_unix.sh
+      - chmod u+x ZAP_2_11_1_unix.sh
+      - Unset DISPLAY
+      - echo $DISPLAY
       - sudo ./ZAP_2_11_1_unix.sh
+      - Enter 
+      - Enter
+      - Enter
+      - Enter
+      - Enter
+      - [1] Enter
+      - [1] Enter
       -zap.sh -daemon -quickurl https://demo.testfire.net/index.jsp -quickout /tmp/myresults.xml -quickprogress
 
   post_build:
