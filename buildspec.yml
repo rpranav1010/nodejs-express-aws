@@ -1,22 +1,19 @@
 # Do not change version. This is the version of aws buildspec, not the version of your buldspec file.
 version: 0.2
-Parameters:
-    DASTTool:
-      Description: Select the DAST tool from the list
-      Type: String
-      AllowedValues: [OWASP-Zap]
+env:
+  Variables:
     OwaspZapURLName:
       Description: OWASP Zap DAST Tool URL
       Type: String
       Default: http://44.202.166.177
     ApplicationURLForDASTScan:
-      Description: Application URL to run the DAST/Pen testing 
+      Description: Application URL to run the DAST/Pen testing
       Type: String
       Default: https://ec2-44-202-166-177.compute-1.amazonaws.com.
     OwaspZapApiKey:
       Description: OWASP Zap ApiKey
       Type: String
-      NoEcho: true
+      NoEcho: 
       Default: zapapikey
 phases:
   install:
@@ -30,9 +27,19 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Compiling the Node.js code
-  post_build:
+
+      #Dynamic Application Security Scan (DAST scan) using OWASP ZAP
+      - sudo apt-get update && sudo apt-get upgrade
+      - sudo apt-get install openjdk-11-jdk
+      - sudo apt-get install wget
+      - wget https://github.com/zaproxy/zaproxy/releases/download/v2.11.1/ZAP_2_11_1_unix.sh
+      - cd Downloads/
+      - sudo ./ZAP_2_11_1_unix.sh
+      -zap.sh -daemon -quickurl https://http://demo.testfire.net/bank/main.jsp -quickout /tmp/myresults.xml -quickprogress
+
+        post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
-    -app.js 
+    -myresults.xml 
