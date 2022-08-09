@@ -1,4 +1,3 @@
-# Do not change version. This is the version of aws buildspec, not the version of your buldspec file.
 version: 0.2
 phases:
   install:
@@ -6,14 +5,16 @@ phases:
       nodejs: 16
   pre_build:
     commands:
-      - echo Installing source NPM dependencies...
-      - npm install
+      -echo installing source npm dependencies
+      -npm install
   build:
     commands:
-      - echo Build started on `date`
-      - echo Compiling the Node.js code
 
-      #Dynamic Application Security Scan (DAST scan) using OWASP ZAP
+      - echo build started on 'date'
+      - echo compiling the Node.js code
+
+      #Dynamic SCAN using OWASP ZAP
+
       - sudo apt-get update && sudo apt-get upgrade
       - sudo apt-get install openjdk-11-jdk
       - sudo apt-get install wget
@@ -22,21 +23,21 @@ phases:
       - cd ZAP
       - wget https://github.com/zaproxy/zaproxy/releases/download/v2.11.1/ZAP_2_11_1_unix.sh
       - chmod u+x ZAP_2_11_1_unix.sh
-      - Unset DISPLAY
+      - unset DISPLAY
       - echo $DISPLAY
       - sudo ./ZAP_2_11_1_unix.sh
-      - Enter 
+      - zap.sh -daemon -quickurl https://demo.testfire.net/index.jsp -quickout /tmp/myresults.xml -quickprogress
       - Enter
       - Enter
       - Enter
       - Enter
-      - [1] Enter
-      - [1] Enter
-      -zap.sh -daemon -quickurl https://demo.testfire.net/index.jsp -quickout /tmp/myresults.xml -quickprogress
+      - 1
+      - 1
 
   post_build:
     commands:
-      - echo Build completed on `date`
+     -echo build complete on 'date'
+
 artifacts:
   files:
-    -myresults.xml 
+    -myresults.xml
