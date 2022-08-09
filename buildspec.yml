@@ -16,7 +16,7 @@ phases:
       #Dynamic SCAN using OWASP ZAP
 
       - sudo apt-get update -y && sudo apt-get upgrade -y
-      - sudo apt-get install openjdk-11-jdk
+      - sudo apt-get install openjdk-11-jdk -y
       - sudo apt-get install wget
       - cd Downloads/
       - mkdir ZAP
