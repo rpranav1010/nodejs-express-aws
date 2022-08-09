@@ -36,8 +36,8 @@ phases:
 
   post_build:
     commands:
-     -echo build complete on 'date'
+     - echo build complete on 'date'
 
 artifacts:
   files:
-    -myresults.xml
+    - myresults.xml
