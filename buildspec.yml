@@ -15,10 +15,11 @@ phases:
 
       #Dynamic SCAN using OWASP ZAP
 
-      - cd Downloads/
+      - 
       - sudo apt-get update -y && sudo apt-get upgrade -y
       - sudo apt-get install openjdk-11-jdk -y
       - sudo apt-get install wget
+      - cd /home/ubuntu/Downloads
       - mkdir ZAP
       - cd ZAP
       - wget https://github.com/zaproxy/zaproxy/releases/download/v2.11.1/ZAP_2_11_1_unix.sh
