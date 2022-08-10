@@ -23,8 +23,8 @@ phases:
       - chmod u+x ZAP_2_11_1_unix.sh
       - unset DISPLAY
       - echo $DISPLAY 
+      - --skip-keypress  
       - sudo ./ZAP_2_11_1_unix.sh -o
-      - --skip-keypres
       - zap.sh -daemon -quickurl https://demo.testfire.net/index.jsp -quickout /tmp/myresults.xml -quickprogress
 
   post_build:
