@@ -21,10 +21,8 @@ phases:
       - sudo apt-get install wget
       - wget https://github.com/zaproxy/zaproxy/releases/download/v2.11.1/ZAP_2_11_1_unix.sh
       - chmod u+x ZAP_2_11_1_unix.sh
-      - unset DISPLAY
-      - echo $DISPLAY 
-      - sudo ./ZAP_2_11_1_unix.sh -o   
-      - echo Enter
+      - unset DISPLAY 
+      - sudo ./ZAP_2_11_1_unix.sh -q
       - zap.sh -daemon -quickurl https://demo.testfire.net/index.jsp -quickout /tmp/myresults.xml -quickprogress
 
   post_build:
