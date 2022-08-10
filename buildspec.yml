@@ -24,7 +24,7 @@ phases:
       - unset DISPLAY
       - echo $DISPLAY 
       - sudo ./ZAP_2_11_1_unix.sh -o   
-      - sudo rkhunter --sk --checkall
+      - echo Enter
       - zap.sh -daemon -quickurl https://demo.testfire.net/index.jsp -quickout /tmp/myresults.xml -quickprogress
 
   post_build:
