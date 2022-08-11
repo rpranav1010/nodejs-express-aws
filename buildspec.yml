@@ -26,8 +26,6 @@ phases:
       - zap.sh -daemon -quickurl https://demo.testfire.net/index.jsp -quickout /tmp/myresults.xml -quickprogress
       - && exit
       
-      
-
   post_build:
     commands:
      - echo build complete on 'date'
