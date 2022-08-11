@@ -23,14 +23,9 @@ phases:
       - chmod u+x ZAP_2_11_1_unix.sh
       - unset DISPLAY 
       - sudo ./ZAP_2_11_1_unix.sh -q
-      - zap.sh -daemon -quickurl https://demo.testfire.net/index.jsp -quickout /tmp/myresults.xml
-      - firefox /tmp/myresults.xml
+      
       
 
   post_build:
     commands:
      - echo build complete on 'date'
-
-artifacts:
-  files:
-    - myresults.xml
