@@ -23,7 +23,7 @@ phases:
       - unset DISPLAY 
       - sudo ./ZAP_2_11_1_unix.sh -q
       - zap.sh -daemon -quickurl https://demo.testfire.net/index.jsp -quickout /tmp/myresults.xml -quickprogress
-      - echo "build stage completed"
+      - exit 0
       
   post_build:
     commands:
