@@ -22,7 +22,7 @@ phases:
       - chmod u+x ZAP_2_11_1_unix.sh
       - unset DISPLAY 
       - sudo ./ZAP_2_11_1_unix.sh -q
-      - zap.sh -daemon -quickurl https://demo.testfire.net/index.jsp -quickout /tmp/myresults.xml
+      - zap.sh -daemon -quickurl https://demo.testfire.net/index.jsp -quickout /tmp/myresults.xml -quickprogress
       - java -jar zap.jar
       - exit 0
       
